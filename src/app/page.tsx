@@ -1,13 +1,11 @@
-import { Hero } from '@/components/Hero'
-import { Features } from '@/components/Features'
-import { Footer } from '@/components/Footer'
+'use client'
+
+import { WritingDashboard } from '@/components/WritingDashboard'
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Hero />
-      <Features />
-      <Footer />
+      <WritingDashboard />
     </main>
   )
 }
