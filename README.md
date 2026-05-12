@@ -61,22 +61,45 @@ A complete redesign focused on the editorial experience.
    npm run dev
    ```
 
-## 🛠️ Architecture
+## 🛠️ Comprehensive Architecture
 
-```
-src/
-├── components/
-│   ├── UnifiedAssistant.tsx      # Central AI control center
-│   ├── RAGWorldDevelopment.tsx   # Lore & Vector management
-│   ├── UserOnboarding.tsx        # Persona learning flow
-│   └── ui/author-os.tsx          # Design system primitives
-├── lib/
-│   ├── vectorService.ts          # RAG & Embedding logic
-│   ├── geminiService.ts          # Primary AI integration
-│   └── aiPersonalization.ts      # Voice/Style learning
-└── app/api/
-    └── worlds/                   # RAG context endpoints
-```
+The CodeXcape codebase is organized into a modular, high-performance architecture designed for scalability and creative precision.
+
+### 🧩 Core System Modules
+
+#### 1. Multimodal AI Engine (`src/lib/`)
+- **`geminiService.ts` & `openai.ts`**: Dual-engine integration for high-reliability generation.
+- **`aiPersonalization.ts`**: The "Voice Engine" that learns and adapts to your unique authorial style.
+- **`vectorService.ts`**: Manages the persistent memory (RAG) using advanced text embeddings.
+- **`assistantBridge.ts`**: Orchestrates communication between different AI sub-systems.
+
+#### 2. Persistence & Content API (`src/app/api/`)
+- **`api/content/`**: Specialized endpoints for persisting structured creative data:
+  - `worlds/`, `characters/`, `plots/`, `dialogues/`, `story-ideas/`
+- **`api/user/`**: Manages the user journey, including `onboarding-status`, `writing-style`, and `active-voice` profiles.
+- **`api/stories/`**: Full CRUD operations for story management and archival.
+
+#### 3. Professional Authoring Toolset (`src/components/`)
+- **`UnifiedAssistant.tsx`**: The central command hub for all creative AI interventions.
+- **`RAGWorldDevelopment.tsx`**: The "Living Bible" interface for lore development.
+- ** Specialized Builders**: 
+  - `CharacterBuilder`, `DialogueCreator`, `PlotBuilder`, `VoiceAnalyzer`.
+- **Engagement Suite**: `WritingDashboard`, `WritingStats`, and the premium `LandingPage`.
+
+#### 4. The Design System (`src/styles/` & `src/components/ui/`)
+- **`author-os.tsx`**: The foundational component library for the Walnut & Cream aesthetic.
+- **`design-system.css`**: Centralized tokens for typography, spacing, and editorial glassmorphism.
+- **`CustomCursor.tsx`**: Immersive interactive layer for a premium desktop feel.
+
+## 🚀 Technical Features
+
+- **Advanced RAG**: Context-aware generation that pulls from your custom lore database.
+- **Streaming Responses**: Real-time generation with optimized hydration for a smooth UI.
+- **Secure Authentication**: Robust session management via NextAuth.js.
+- **Multi-Format Export**: Production-ready exports to PDF, Markdown, HTML, and TXT.
+- **Automated Verification**: Integrated backend health checks and comprehensive Jest testing.
+
+## 🚀 Quick Start
 
 ## 🔒 Security & Privacy
 - **Local Context**: Your creative work stays in your controlled database environment.
