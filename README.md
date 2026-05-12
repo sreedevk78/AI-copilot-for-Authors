@@ -1,162 +1,256 @@
-# AI Writing Studio 🚀
+# AI Writing Assistant
 
-A comprehensive AI-powered writing platform that helps writers generate story ideas, develop plots, create dialogue, and analyze their unique writing voice.
+A modern, full-featured AI writing assistant built with Next.js, TypeScript, and Tailwind CSS. Features streaming AI generation, multiple export formats, and a beautiful, responsive interface.
 
-## 🚀 Features
+## ✨ Features
 
-### Core Writing Tools
-- **Story Idea Generator** - AI-powered story concepts with genre and theme filtering
-- **Plot Builder** - Interactive plot development with multiple story structures
-- **Dialogue Creator** - Character-driven dialogue generation and analysis
-- **Character Builder** - Comprehensive character development with AI assistance
-- **Voice Analyzer** - Writing style analysis and voice preservation
+- **🤖 AI-Powered Generation**: Uses Google Gemini AI for high-quality content generation
+- **📝 Multiple Templates**: Story ideas, plot outlines, and dialogue generation
+- **🌊 Streaming Responses**: Real-time text generation with cancellation support
+- **💾 Export Options**: TXT, HTML, Markdown, and PDF export
+- **📚 History Management**: Save and revisit previous generations
+- **🎨 Modern UI**: Responsive design with smooth animations
+- **⚙️ Customizable Settings**: Adjust tone, creativity, and length
+- **🔄 Retry Logic**: Automatic retry with exponential backoff
+- **♿ Accessible**: Full keyboard navigation and screen reader support
 
-### Advanced Features
-- **AI Integration** - OpenAI GPT-4 powered content generation
-- **Voice Preservation** - Maintains your unique writing style across AI generations
-- **Writing Analytics** - Track writing progress, goals, and achievements
-- **Collaboration Tools** - Real-time collaboration and sharing features
-- **Professional UI** - Beautiful, responsive interface with smooth animations
-
-## 🛠 Tech Stack
-
-- **Frontend**: Next.js 15, React 19, TypeScript
-- **Styling**: Tailwind CSS, Framer Motion
-- **Database**: PostgreSQL with Prisma ORM
-- **AI**: OpenAI GPT-4 Turbo
-- **UI Components**: Radix UI, Lucide React
-- **State Management**: React Hooks
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 18+ 
-- PostgreSQL database
-- OpenAI API key
+- npm or yarn
+- Google Gemini API key
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd CodeXcape-app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp env.example .env.local
+   ```
+   
+   Edit `.env.local` and add your Gemini API key:
+   ```env
+   GEMINI_API_KEY=your_actual_gemini_api_key_here
+   ```
+
+4. **Get a Gemini API Key**
+   - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+   - Create a new API key
+   - Copy the key to your `.env.local` file
+
+5. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🛠️ Development
+
+### Available Scripts
+
 ```bash
-git clone https://github.com/sreedevkrishna2024/CodeXcape-app.git
-cd CodeXcape-app
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Set up environment variables:
-```bash
-# Copy the example config
-cp config.example.ts config.ts
-
-# Edit config.ts with your actual values:
-# - DATABASE_URL: Your PostgreSQL connection string
-# - OPENAI_API_KEY: Your OpenAI API key
-```
-
-4. Set up the database:
-```bash
-# Generate Prisma client
-npx prisma generate
-
-# Run database migrations (when database is set up)
-npx prisma db push
-```
-
-5. Start the development server:
-```bash
+# Development server
 npm run dev
+
+# Production build
+npm run build
+
+# Start production server
+npm start
+
+# Run tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run linting
+npm run lint
+
+# Fix linting issues
+npm run lint:fix
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the application.
-
-## 📁 Project Structure
+### Project Structure
 
 ```
 src/
-├── app/                    # Next.js App Router
+├── app/                    # Next.js app router
 │   ├── api/               # API routes
-│   │   ├── ai/           # AI generation endpoints
-│   │   └── stories/      # Story management endpoints
-│   ├── globals.css       # Global styles
-│   ├── layout.tsx        # Root layout
-│   └── page.tsx          # Home page
+│   │   └── generate/      # AI generation endpoint
+│   ├── auth/              # Authentication pages
+│   └── page.tsx           # Main page
 ├── components/            # React components
-│   ├── WritingDashboard.tsx
-│   ├── StoryIdeaGenerator.tsx
-│   ├── PlotBuilder.tsx
-│   ├── DialogueCreator.tsx
-│   ├── CharacterBuilder.tsx
-│   ├── VoiceAnalyzer.tsx
-│   └── WritingStats.tsx
-└── lib/                  # Utility libraries
-    ├── openai.ts         # OpenAI integration
-    ├── writingUtils.ts   # Writing analysis utilities
-    └── prisma.ts         # Database client
+│   └── WriterAssistant.tsx # Main writing interface
+├── lib/                   # Utilities and services
+│   ├── exportUtils.ts     # Export functionality
+│   ├── geminiService.ts   # Gemini AI integration
+│   └── writingUtils.ts    # Writing utilities
+└── __tests__/            # Test files
 ```
 
-## 🎯 Key Features Explained
+## 🎯 Usage
 
-### Story Idea Generator
-- Generate creative story concepts with AI
-- Filter by genre and themes
-- Save and organize favorite ideas
-- Export ideas for further development
+### Basic Usage
 
-### Plot Builder
-- Multiple story structure templates (Three-Act, Hero's Journey, Five-Act)
-- Interactive plot point development
-- AI-assisted plot expansion
-- Visual progress tracking
+1. **Select a Template**: Choose from Story Idea, Plot Outline, or Dialogue
+2. **Enter Your Prompt**: Describe what you want to generate
+3. **Adjust Settings**: Set tone, creativity level, and length
+4. **Generate**: Click the Generate button and watch the AI create content
+5. **Export**: Save your content in multiple formats
 
-### Dialogue Creator
-- Character voice development
-- Scene-based dialogue creation
-- Authenticity and quality analysis
-- Practice and playback features
+### Advanced Features
 
-### Character Builder
-- Comprehensive character profiles
-- AI-generated character details
-- Relationship mapping
-- Character arc development
+#### Templates
+- **Story Idea**: Generates creative story concepts with characters and conflicts
+- **Plot Outline**: Creates detailed story structures with key plot points
+- **Dialogue**: Writes natural conversations between characters
 
-### Voice Analyzer
-- Writing style analysis using AI
-- Voice profile creation and comparison
-- Metrics tracking (complexity, tone, pacing)
-- Improvement suggestions
+#### Settings
+- **Tone**: Professional, Creative, Casual, Formal, Conversational, Poetic
+- **Creativity**: Adjust from focused (0.0) to highly creative (1.0)
+- **Length**: Short, Medium, Long, or Very Long outputs
+
+#### Export Options
+- **TXT**: Plain text file
+- **HTML**: Formatted web page
+- **Markdown**: Markdown formatted text
+- **PDF**: Print-ready document (opens print dialog)
+
+## 🧪 Testing
+
+The project includes comprehensive tests for all major functionality:
+
+```bash
+# Run all tests
+npm test
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run specific test file
+npm test WriterAssistant.test.tsx
+```
+
+### Test Coverage
+
+- ✅ Component rendering
+- ✅ User interactions
+- ✅ API integration
+- ✅ Export functionality
+- ✅ Error handling
+- ✅ Loading states
 
 ## 🔧 Configuration
 
-Edit `config.ts` to customize:
-- AI model settings
-- Rate limiting
-- Feature flags
-- App branding
+### Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `GEMINI_API_KEY` | Google Gemini AI API key | Yes |
+| `DATABASE_URL` | Database connection string | No |
+| `NEXTAUTH_URL` | Authentication callback URL | No |
+| `NEXTAUTH_SECRET` | NextAuth secret key | No |
+| `OPENAI_API_KEY` | OpenAI API key (fallback) | No |
+
+### API Configuration
+
+The AI generation endpoint (`/api/generate`) supports:
+
+- **Streaming responses** for real-time text generation
+- **Error handling** with automatic retry logic
+- **Rate limiting** protection
+- **Security** with server-side API key handling
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. **Connect your repository** to Vercel
+2. **Add environment variables** in the Vercel dashboard:
+   - `GEMINI_API_KEY`: Your Gemini API key
+3. **Deploy**: Vercel will automatically deploy on push
+
+### Other Platforms
+
+The app can be deployed to any platform that supports Next.js:
+
+```bash
+# Build the application
+npm run build
+
+# Start the production server
+npm start
+```
+
+## 🔒 Security
+
+- ✅ API keys are kept server-side only
+- ✅ Input validation on all endpoints
+- ✅ Rate limiting protection
+- ✅ Error handling without sensitive data exposure
+- ✅ HTTPS enforcement in production
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes and add tests
+4. Run tests: `npm test`
+5. Commit your changes: `git commit -m 'Add feature'`
+6. Push to the branch: `git push origin feature-name`
+7. Submit a pull request
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## 🆘 Troubleshooting
 
-- OpenAI for providing the GPT-4 API
-- Next.js team for the excellent framework
-- Tailwind CSS for the utility-first styling
-- All the open-source contributors who made this possible
+### Common Issues
 
----
+**"API key not found" error**
+- Ensure your `.env.local` file exists and contains `GEMINI_API_KEY`
+- Verify the API key is valid and has proper permissions
 
-**Built with ❤️ for hackathons**
+**"Failed to generate content" error**
+- Check your internet connection
+- Verify the Gemini API key is active
+- Check the browser console for detailed error messages
+
+**Build errors**
+- Clear `.next` folder: `rm -rf .next`
+- Reinstall dependencies: `rm -rf node_modules && npm install`
+- Check Node.js version (requires 18+)
+
+**Tests failing**
+- Ensure all dependencies are installed: `npm install`
+- Check that the test environment is properly configured
+
+### Getting Help
+
+- Check the [Issues](https://github.com/your-repo/issues) page
+- Review the [API documentation](https://ai.google.dev/docs)
+- Contact support with detailed error messages
+
+## 🎉 Acknowledgments
+
+- Built with [Next.js](https://nextjs.org/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Animations with [Framer Motion](https://www.framer.com/motion/)
+- Icons from [Lucide React](https://lucide.dev/)
+- AI powered by [Google Gemini](https://ai.google.dev/)

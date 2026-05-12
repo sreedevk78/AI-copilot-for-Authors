@@ -39,3 +39,12 @@ next-env.d.ts
 # prisma
 /prisma/migrations/*
 !/prisma/migrations/.gitkeep
+*.db
+*.db-journal
+
+# scratch/test scripts
+/test-*.js
+/simple-*.js
+/quick-test.js
+/check-database.js
+/fix-passwords.js

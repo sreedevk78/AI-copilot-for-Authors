@@ -1,12 +1,23 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { DM_Sans, Source_Serif_4 } from 'next/font/google'
 import './globals.css'
+import { SessionProvider } from '@/components/SessionProvider'
 
-const inter = Inter({ subsets: ['latin'] })
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+  weight: ['400', '500', '600', '700'],
+})
+
+const sourceSerif = Source_Serif_4({
+  subsets: ['latin'],
+  variable: '--font-source-serif',
+  weight: ['400', '500', '600', '700'],
+})
 
 export const metadata: Metadata = {
-  title: 'CodeXcape App',
-  description: 'Your hackathon-ready full-stack application',
+  title: 'CodeXcape — Author OS',
+  description: 'The operating system for authors. Write, shape, and publish with AI-powered creative tools.',
 }
 
 export default function RootLayout({
@@ -16,7 +27,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${dmSans.variable} ${sourceSerif.variable} font-sans`}>
+        <SessionProvider>
+          {children}
+        </SessionProvider>
+      </body>
     </html>
   )
 }

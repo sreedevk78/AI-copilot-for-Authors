@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+  // Ensure src directory is recognized
+  basePath: '',
+  assetPrefix: '',
 }
 
 module.exports = nextConfig

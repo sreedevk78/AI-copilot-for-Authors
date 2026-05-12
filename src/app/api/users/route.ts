@@ -5,7 +5,7 @@ export async function GET() {
   try {
     const users = await prisma.user.findMany({
       include: {
-        posts: true
+        stories: true
       }
     })
     return NextResponse.json({ users })

@@ -1,27 +1,114 @@
+/* Design System Import */
+@import '../styles/design-system.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* ── Body base ──────────────────────────────────────────────── */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--cx-bg-canvas);
+  color: var(--cx-ink-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* ── Author OS shell ────────────────────────────────────────── */
+.author-os-shell {
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(99, 102, 241, 0.04), transparent 40%),
+    radial-gradient(ellipse at 90% 100%, rgba(52, 211, 153, 0.03), transparent 40%),
+    var(--cx-bg-canvas);
+  position: relative;
+  min-height: 100vh;
+}
+
+.author-os-atmosphere {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.author-os-atmosphere::before {
+  content: '';
+  position: absolute;
+  left: 280px;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cx-border), transparent);
+}
+
+/* ── Surface panel spacing ──────────────────────────────────── */
+.surface-panel {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .surface-panel {
+    padding: 24px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* ── Form element resets ────────────────────────────────────── */
+input, textarea, select {
+  background: var(--cx-bg-elevated) !important;
+  color: var(--cx-ink-primary) !important;
+  border: 1px solid var(--cx-border);
+  border-radius: var(--cx-radius-sm);
+  transition: border-color var(--cx-duration) var(--cx-ease),
+              box-shadow var(--cx-duration) var(--cx-ease);
+  font-family: var(--font-sans);
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--cx-accent) !important;
+  box-shadow: 0 0 0 3px var(--cx-accent-soft) !important;
+  outline: none !important;
+}
+input::placeholder, textarea::placeholder {
+  color: var(--cx-ink-muted) !important;
+  opacity: 1;
+}
+
+/* ── Button resets ──────────────────────────────────────────── */
+button {
+  font-weight: 600;
+  transition: all var(--cx-duration) var(--cx-ease);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--cx-ink-faint);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--cx-ink-muted); }
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--cx-ink-faint) transparent;
+}
+
+/* ── Glass morphism ─────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--cx-border);
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
